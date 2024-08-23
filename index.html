@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+    <br/>
+
+    <button onclick="diceRollClick()">Roll</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+    <button onclick="resetButton()">Reset</button>
+    <br/>
+
+    Roll Count 
+    <input id="rollcount" readonly value="0"></input>
+
+    Lap Count 
+    <input id="lapcount" readonly value="0"></input>
+    <br/>
+
+    Fixed Dice ticket
+    <br/>
+
+    <button onclick="fixedTicketUse(this)">1</button>
+    <input id="fixed1" readonly value="0"></input> 
+    <br/>   
+
+    <button onclick="fixedTicketUse(this)">2</button>
+    <input id="fixed2" readonly value="0"></input>
+    <br/>   
+
+    <button onclick="fixedTicketUse(this)">3</button>
+    <input id="fixed3" readonly value="0"></input>
+    <br/>   
+
+    <button onclick="fixedTicketUse(this)">4</button>
+    <input id="fixed4" readonly value="0"></input>
+    <br/>   
+
+    <button onclick="fixedTicketUse(this)">5</button>
+    <input id="fixed5" readonly value="0"></input>
+    <br/> 
+
+    <button onclick="fixedTicketUse(this)">6</button>
+    <input id="fixed6" readonly value="0"></input>
+    <br/> 
+
+    <h4>
+        Auto Roll
+    </h4>
+
+    Auto roll's strategy is to use fixed dice ticket if
+     it will reach 
+    any cell with the target loot.
+    <br/>
+    <br/>
+
+    <fieldset>
+        <legend>Set maximization target:</legend>
+      
+        <div>
+            <input type="radio" id="miyu" name="maxtarget" value="0"/>
+            <label for="miyu">Miyu Eleph</label>
+        </div>
+      
+        <div>
+            <input type="radio" id="credits" name="maxtarget" value="1"/>
+            <label for="credits">Credits</label>
+        </div> 
+      
+        <div>
+            <input type="radio" id="orbs" name="maxtarget" value="2"/>
+            <label for="orbs">Orbs</label>
+        </div>
+
+        <div>
+            <input type="radio" id="report" name="maxtarget" value="3"/>
+            <label for="report">Reports</label>
+        </div>
+
+        <div>
+            <input type="radio" id="eligma" name="maxtarget" value="4"/>
+            <label for="eligma">Eligma</label>
+        </div>
+    </fieldset>
+    <br/>
+    Auto Roll Count
+    <input id="autorollcount" value="0"></input>
+    <br/>
+    <button onclick="autoroll()">Auto Roll</button>
+    <button onclick="largesample()">Large Sample</button>
+    warning, large sample might freeze your browser for a few seconds.
+
+    <h4>
+    Loot (when using large sample feature the loot is the average across 200 samples.)
+    </h4>
+     
+    miyu eleph
+    <input id="loot0" readonly value="0"></input>
+    <text id="statsloot0"></text>
+    <br/>   
+
+    credits
+    <input id="loot1" readonly value="0"></input>
+    <text id="statsloot1"></text>
+    <br/>   
+
+    orange orb
+    <input id="loot2" readonly value="0"></input>
+    <text id="statsloot2"></text>
+    <br/>   
+
+    orange report
+    <input id="loot3" readonly value="0"></input>
+    <text id="statsloot3"></text>
+    <br/>    
+
+    eligma
+    <input id="loot4" readonly value="0"></input>
+    <text id="statsloot4"></text>
+    <br/> 
+
+    purple orb
+    <input id="loot5" readonly value="0"></input>
+    <text id="statsloot5"></text>
+    <br/> 
+
+    purple report
+    <input id="loot6" readonly value="0"></input>
+    <text id="statsloot6"></text>
+    <br/> 
+
+    secret tech note
+    <input id="loot7" readonly value="0"></input>
+    <text id="statsloot7"></text>
+    <br/> 
+
+    1 recruit ticket
+    <input id="loot8" readonly value="0"></input>
+    <text id="statsloot8"></text>
+    <br/> 
+
+
+
+
+    <br/> 
+    <br/> 
+    Percent Bonus
+    <input id="pbon" value="0"></input>
+    AP spent (on shrimp farming and intial clear)
+    <input id="total_ap" value="0"></input>
+    <br/>
+    <button onclick="calculate_rolls()">calculate rolls</button>
+    Rolls (includes initial clear reward)
+    <input id="rolls" readonly value="0"></input>
+    
+    
+    <button onclick="genDump()">dump</button>
+    <textarea id="printer"></textarea>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.2.0/math.js"></script>
+<script src="script.js"></script>
+</body>
+</html> 
